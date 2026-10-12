@@ -13,8 +13,12 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
+# If you want to add a new .cpp file to compile, write it in the parantheses after the main.cpp with a space in between.
+# (But you don't need to add the .h files.)
 add_executable(main src/main.cpp)
 target_compile_features(main PRIVATE cxx_std_17)
+
+# Add new modules after the Graphics one as "SFML::Audio" following a space.
 target_link_libraries(main PRIVATE SFML::Graphics)
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
